@@ -10,8 +10,8 @@ class ApplicationController < ActionController::API
   end
 
   def decoded_auth_token
-    if request.headers['Authorization'].present?
-      token = request.headers['Authorization'].split(' ').last
+    if request.headers["HTTP_AUTHORIZATION"].present?
+      token = request.headers["HTTP_AUTHORIZATION"].split(' ').last
       JsonWebToken.decode(token)
     end
   end
