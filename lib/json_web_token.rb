@@ -1,8 +1,6 @@
 class JsonWebToken
 
   def self.encode(payload)
-    byebug
-
     JWT.encode(payload, Rails.application.credentials.secret_key_base)
   end
 
